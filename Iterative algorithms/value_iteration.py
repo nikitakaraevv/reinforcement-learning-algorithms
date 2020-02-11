@@ -28,8 +28,6 @@ class ValueIteration:
         delta = float('inf')
         it = 0
 
-        self.env.reset()
-
         # value iteration algorithm. Iterates until convergence
         print(f"Started training")
         while True:
@@ -47,7 +45,7 @@ class ValueIteration:
 
             # checking the convergence condition
             if delta <= (eps*(1-gamma)/gamma):
-                print(f"Value iteration converged after {it} iterations")
+                print(f"Value iteration algorithm converged after {it} iterations")
                 break
 
     def test(self, episodes=100, max_iterations=100):
@@ -69,6 +67,6 @@ class ValueIteration:
 
 
 if __name__ == '__main__':
-    vi = ValueIteration(gym.make('FrozenLake-v0').unwrapped)
-    vi.train()
-    vi.test()
+    agent = ValueIteration(gym.make('FrozenLake-v0').unwrapped)
+    agent.train()
+    agent.test()
